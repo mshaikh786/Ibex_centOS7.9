@@ -1,6 +1,6 @@
 FROM centos:7.9.2009
 RUN yum update -y && \
-    yum install -y which make wget gcc 
+    yum install -y which make wget gcc && \
     tcl-devel.x86_64 less
 
 ## Module install from source code 
@@ -15,6 +15,7 @@ make && make install
 ENV PATH /software/bin:$PATH
 ENV MODULESHOME /software/Modules
 ENV MODULES_CMD=/software/libexec/modulecmd.tcl
-RUN echo -e "alias module='/usr/bin/tclsh /software/libexec/modulecmd.tcl bash'" >> /etc/profile.d/module.sh
+ENTRYPOINT ["sh","/software/init/profile.sh"]
+#RUN echo -e "alias module='/usr/bin/tclsh /software/libexec/modulecmd.tcl bash'" >> /etc/profile.d/module.sh
 
 
