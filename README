@@ -1,0 +1,1 @@
+For running the modified container, you must source the modulesystem in the container to start using the modules from mounted filesystem /sw
