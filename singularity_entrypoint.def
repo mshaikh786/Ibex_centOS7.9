@@ -1,9 +1,8 @@
 Bootstrap: docker
-From: mshaikh/ibex_centos7.9
+From: mshaikh/ibexcluster:centos7.9.2009
+
 %runscript
-    echo "Initializing Environment Modules"
-    source /software/init/bash
+    source /software/init/profile.sh
     exec "$@"
-%startscript
-    echo "Initializing Environment Modules"
-    source /software/init/bash
+    
+
